@@ -1,0 +1,8 @@
+Description
+
+This plugin extends the checkboxes and radioboxes behaviours to its parent div. 
+The form element itself becomes hidden, and the parent div receives the class "checked" when the child input is checked.
+
+Usage examples:
+http://www.unimedsolucaoempresa.com.br/simulador.php
+http://www.liderinteriores.com.br/fale-conosco
