@@ -1,8 +1,17 @@
 Description
 
-This plugin extends the checkboxes and radioboxes behaviours to its parent div. 
-The form element itself becomes hidden, and the parent div receives the class "checked" when the child input is checked.
+This JQuery plugin extends the checkboxes and radioboxes behaviours to its parent div.
+The form element itself becomes hidden, and the parent div receives the class "checked" when the child input is checked, and "disabled" when the child input is disabled.
+Works for checkboxes and radio butons.
 
-Usage examples:
+Usage:
+
+$(document).ready(function(){
+	$('#element-id').extendFormElement('init');
+});
+
+
+Examples:
+
 http://www.unimedsolucaoempresa.com.br/simulador.php
 http://www.liderinteriores.com.br/fale-conosco
