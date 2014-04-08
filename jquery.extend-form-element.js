@@ -3,8 +3,8 @@
 /*
 	Extend Form Element plugin
 	Author: Victor Volker
-	Version: 0.7
-	Date: set 28 2011
+	Version: 0.8
+	Date: feb 28 2014
 	
 	extends the form element behaviour to its parent div; compatible with jQuery 1.6 or higher
 	
@@ -13,16 +13,22 @@
 (function( $ ){
 
   var methods = {
-    init : function() {
+    init : function(options) {
 		
 		return this.each(function(){
 		
 			var $this = $(this),
 				data = $this.data('initialized'),
 				type = $this.attr('type'),
-				extendedElement = $(this).parent()
+				extendedElement
 				;
-			
+
+			if (options && options.extendedElementSelector) {
+				extendedElement = $(options.extendedElementSelector).first();
+			} else {
+				extendedElement = $(this).parent();
+			}
+				
 			if ( ! data && (type=='radio' || type=='checkbox') ) {
 			
 				$(this).data('initialized', true);
@@ -32,7 +38,10 @@
 				
 				$(this).css('visibility','hidden');
 				
-				$(extendedElement).click(function(){ $(this).extendFormElement('doClick',$this); });
+				$(extendedElement).click(function(event){
+					$(this).extendFormElement('doClick',$this); 
+					event.preventDefault() 
+				});
 				
 				$(this).extendFormElement('updateAll');
 			
